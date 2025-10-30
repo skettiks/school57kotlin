@@ -14,4 +14,6 @@ import java.time.LocalDate
  * ```
  */
 
-infix fun Int.daysFromNow(ignore: Unit): LocalDate = TODO()
+infix fun Int.daysFromNow(ignore: Unit): LocalDate {
+    return LocalDate.now().plusDays(this.toLong())
+}
