@@ -3,7 +3,7 @@ package ru.tbank.education.school.lesson7.practise.task1// 4) FILTER — выя�
 /**
  * Задание: Найди потенциально мошеннические операции.
  *
- * Дано: список Transaction(amount, category, timestamp, country).
+ * Дано: список Transaction(amount, category, timestamp, country)
  * Нужно: отфильтровать транзакции, которые удовлетворяют ЛЮБОМУ из условий:
  *  - сумма > threshold
  *  - категория ∈ {CRYPTO, GAMBLING}

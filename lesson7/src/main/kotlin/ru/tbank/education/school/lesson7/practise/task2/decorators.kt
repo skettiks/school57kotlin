@@ -1,5 +1,7 @@
 package ru.tbank.education.school.lesson7.practise.task2
 
+import kotlin.system.measureTimeMillis
+
 /**
  * Реализуй декоратор limitRate(intervalMs: Long, f: (A) -> R): (A) -> R?
  *
@@ -132,7 +134,14 @@ fun <T> retry(times: Int, f: () -> T): () -> T {
  * println(slowFn(10))
  */
 fun <A, R> timed(name: String, f: (A) -> R): (A) -> R {
-    TODO()
+    return { input: A ->
+        val result: R
+        val time = measureTimeMillis {
+            result = f(input)
+        }
+        println("$name выполнено за $time мс")
+        result
+    }
 }
 
 /**
@@ -155,5 +164,12 @@ fun <A, R> timed(name: String, f: (A) -> R): (A) -> R {
  *
  */
 fun <A, R> memoizeWith(capacity: Int, f: (A) -> R): (A) -> R {
-    TODO()
+    val cache = object : LinkedHashMap<A, R>(capacity, 0.75f, true) {
+        override fun removeEldestEntry(eldest: MutableMap.MutableEntry<A, R>?): Boolean {
+            return size > capacity
+        }
+    }
+    return { input: A ->
+        cache.getOrPut(input) { f(input) }
+    }
 }

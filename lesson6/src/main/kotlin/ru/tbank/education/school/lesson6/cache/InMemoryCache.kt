@@ -14,14 +14,38 @@ interface InMemoryCache<K, V> {
      * Возвращает null, если такого ключа нет.
      */
     fun get(key: K): V?
-    
+
     /**
      * Удаляет значение из кэша по ключу key.
      */
     fun remove(key: K)
-    
+
     /**
      * Очищает весь кэш.
      */
     fun clear()
+}
+class SimpleInMemoryCache<K, V> : InMemoryCache<K, V> {
+    private val cache = HashMap<K, V>()
+
+    override fun put(key: K, value: V) {
+        cache[key] = value
+    }
+
+    override fun get(key: K): V? {
+        try {
+            return cache[key]
+        }
+        catch (e: Exception) {
+            return null
+        }
+    }
+
+    override fun remove(key: K) {
+        cache.remove(key)
+    }
+
+    override fun clear() {
+        cache.clear()
+    }
 }

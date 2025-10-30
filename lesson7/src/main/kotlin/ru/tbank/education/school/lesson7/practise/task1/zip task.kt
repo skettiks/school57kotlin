@@ -14,5 +14,7 @@ import java.time.LocalDate
 data class Measurement(val date: LocalDate, val value: Double)
 
 fun zipMeasurements(dates: List<LocalDate>, values: List<Double>): List<Measurement> {
-    TODO()
+    val measurements = dates.zip(values)
+        .map { (date, value) -> Measurement(date, value) }
+    return measurements
 }

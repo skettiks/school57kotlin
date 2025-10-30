@@ -11,7 +11,7 @@ import java.time.LocalDateTime
  *
  * Верни тройку: Triple<Event?, List<Event>, List<Event>>, где по порядку будет:
  *  - первое событие типа ERROR,
- *  - последние два события типа LOGIN,
+ *  - последние два события типа LOGIN
  *  - первые N событий за сегодня.
  *
  */

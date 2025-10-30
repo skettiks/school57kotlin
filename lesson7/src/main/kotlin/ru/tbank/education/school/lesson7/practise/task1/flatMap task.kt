@@ -9,7 +9,7 @@ package ru.tbank.education.school.lesson7.practise.task1
  *
  * Подсказки:
  *  - Используй flatMap для разворачивания нескольких списков items в один список.
- *  - На каждом элементе посчитай total = quantity * pricePerUnit и totalWithTax = total * 1.2.
+ *  - На каждом элементе посчитай total = quantity * pricePerUnit и totalWithTax = total * 1.2
  */
 data class Order(val id: String, val items: List<OrderItem>)
 data class OrderItem(val productId: String, val quantity: Int, val pricePerUnit: Double)
